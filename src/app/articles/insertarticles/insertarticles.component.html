@@ -1,0 +1,63 @@
+<h3>Insert articles</h3>
+
+<div class="card container col-sm-6">
+  <form (ngSubmit)="ajoutarticle()">
+    <div class="form-group m-4">
+      <label for="exampleFormControlInput1" class="form-label">Reference</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Reference" name="reference"
+        [(ngModel)]="nouvarticle.reference">
+    </div>
+    <div class="form-group m-4">
+      <label for="exampleFormControlInput1" class="form-label">Marque</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Marque" name="marque"
+        [(ngModel)]="nouvarticle.marque">
+    </div>
+    <div class="form-group m-4">
+      <label for="exampleFormControlInput1" class="form-label">Designation</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Designation" name="designation"
+        [(ngModel)]="nouvarticle.designation">
+    </div>
+    <div class="form-group m-4">
+      <label for="exampleFormControlInput1" class="form-label">Sous categorieID</label>
+
+      <select class="form-select" aria-label="Default select example" name="scategorieID" [(ngModel)]="nouvarticle.scategorieID">
+      
+        <option *ngFor="let scat of scategories" value="{{scat._id}}">
+          {{ scat.nomscategorie }}
+        </option>
+      
+      </select>
+    
+    </div>
+    <div class="form-group m-4">
+      <label for="exampleFormControlInput1" class="form-label">Quantite Stock</label>
+      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Quantite Stock"
+        name="qtestock" [(ngModel)]="nouvarticle.qtestock">
+    </div>
+    <div class="form-group m-4">
+      <label for="exampleFormControlInput1" class="form-label">Prix</label>
+      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Prix" name="prix"
+        [(ngModel)]="nouvarticle.prix">
+    </div>
+    <div class="form-group m-4">
+      <label for="exampleFormControlInput1" class="form-label">Image article</label>
+
+      <!-- <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Image article" name="imageart"
+        [(ngModel)]="nouvarticle.imageart"> -->
+      <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+      <button type="button" (click)="fileInput.click()">Selectionner image</button>
+      <input type="text" class="form-control" id="imageart" name="imageart" [(ngModel)]="nouvarticle.imageart">
+      <div *ngIf="nouvarticle.imageart!=null">
+        <img src="{{nouvarticle.imageart}}" width="50" height="50" />
+      </div>
+    </div>
+    <div class="container row g-2 mb-4 mt-4">
+      <div class="col-6 d-flex justify-content-center">
+        <button type="submit" class="btn btn-success w-50">Ajouter</button>
+      </div>
+      <div class="col-6 d-flex justify-content-center">
+        <button type="button" class="btn btn-danger w-50" [routerLink]="['/Listarticles']">Annuler</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+<h3>Modification articles</h3>
+<div class="card container col-sm-6">
+    <form (ngSubmit)="modifierarticle()">
+        <div class="form-group m-4">
+            <label for="exampleFormControlInput1" class="form-label">Id</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Id"
+                name="_id" [ngModel]="art._id" disabled>
+        </div>
+        <div class="form-group m-4">
+            <label for="exampleFormControlInput1" class="form-label">Designation</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Designation"
+                name="designation" [(ngModel)]="art.designation">
+        </div>
+        <div class="form-group m-4">
+            <label for="exampleFormControlInput1" class="form-label">Image article</label>
+            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Image article"
+                name="imageart" [(ngModel)]="art.imageart">
+        </div>
+        <div class="form-group m-4">
+            <label for="exampleFormControlInput1" class="form-label">Marque</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Marque" name="marque"
+                [(ngModel)]="art.marque">
+        </div>
+        <div class="form-group m-4">
+            <label for="exampleFormControlInput1" class="form-label">Prix</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Prix" name="prix"
+                [(ngModel)]="art.prix">
+        </div>
+        <div class="form-group m-4">
+            <label for="exampleFormControlInput1" class="form-label">Quantite Stock</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Quantite Stock"
+                name="qtestock" [(ngModel)]="art.qtestock">
+        </div>
+        <div class="form-group m-4">
+            <label for="exampleFormControlInput1" class="form-label">Reference</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Reference"
+                name="reference" [(ngModel)]="art.reference">
+        </div>
+        <div class="form-group m-4">
+            <label for="exampleFormControlInput1" class="form-label">Sous categorieID</label>
+            <select class="form-select" aria-label="Default select example" name="scategorieID"
+                [(ngModel)]="art.scategorieID">
+                <option value="aaaa" selected="aaaa"> aaaa </option>
+                <option *ngFor="let scat of scategories" [value]="scat._id">
+                    {{ scat.nomscategorie }}
+                </option>
+            </select>
+        </div>
+        <div class="container row g-2 mb-4 mt-4">
+            <div class="col-6 d-flex justify-content-center"><button type="submit"
+                    class="btn btn-success w-50">Modifier</button></div>
+            <div class="col-6 d-flex justify-content-center"><button type="button" class="btn btn-danger w-50"
+                    [routerLink]="['/Listarticles']">Annuler</button></div>
+        </div>
+    </form>
+</div>

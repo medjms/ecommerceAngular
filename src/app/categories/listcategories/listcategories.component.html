@@ -1,0 +1,24 @@
+<h3>Liste des Catégories</h3>
+<div class="container">
+    <button type="button" class="btn btn-success" routerLink="/Insertcategories">Ajouter</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- <th>ID</th> -->
+                <th>Nom Catégorie</th>
+                <th>Images</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-life" *ngFor="let c of categories">
+                <!-- <th scope="row">{{p._id}}</th> -->
+                <td>{{c.nomcategorie}}</td>
+                <td><img src={{c.imagecategorie}} width="120" height="60"></td>
+                <td><button type="button" class="btn btn-primary" [routerLink]="['/Modifcategories/',c._id]">Modifier</button> </td>
+                <td><button type="button" class="btn btn-danger" (click)="Deletecategorie(c._id)">Supprimer</button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,35 @@
+<h3>Insert sous categories</h3>
+
+<div class="card container w-50">
+  <form (ngSubmit)="ajoutscategorie()">
+    
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Categorie ID</label>
+        <select class="form-select" aria-label="Default select example" name="categorieID"
+          [(ngModel)]="nouvscategorie.categorieID">
+          <option *ngFor="let cat of categories" [value]="cat._id">
+            {{ cat.nomcategorie }}
+          </option>
+        </select>
+      </div>
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Nom sous categorie</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom sous categorie" name="nomscategorie"
+        [(ngModel)]="nouvscategorie.nomscategorie">
+    </div>
+    
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Image sous categorie</label>
+        <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Image sous categorie" name="imagescat"
+          [(ngModel)]="nouvscategorie.imagescat">
+      </div>
+
+    <div class="container row g-2 mb-4 mt-4">
+      <div class="col-6 d-flex justify-content-center"><button type="submit"
+          class="btn btn-success w-50">Ajouter</button></div>
+      <div class="col-6 d-flex justify-content-center"><button type="button" class="btn btn-danger w-50"
+          [routerLink]="['/Listscategories']">Annuler</button></div>
+    </div>
+  </form>
+</div>

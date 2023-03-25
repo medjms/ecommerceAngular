@@ -1,0 +1,16 @@
+<h3>List articles card</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-3" *ngFor="let a of articles">
+            <div class="card" style="width: 260px; height: 500px;">
+                <img src={{a.imageart}} class="card-img-top" alt="..." style="width: 250px; height: 250px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{a.designation}}</h5>
+                    <p class="card-text">{{a.marque}}</p>
+                    <p class="card-text text-center text-danger fw-bold">{{a.prix}}</p>
+                    <a href="#" class="btn btn-primary w-100">Ajouter au panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
